@@ -1,31 +1,107 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/app_providers.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../providers/app_providers.dart';
+
+import '../../core/constants/app_spacing.dart';
+import '../../core/widgets/fx_app_bar.dart';
+
+import 'widgets/profile_header.dart';
+import 'widgets/profile_stats.dart';
+import 'widgets/achievements_card.dart';
+import 'widgets/recent_activity.dart';
+import 'widgets/learning_goal_card.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final userProvider = Provider.of<UserProvider>(context);
-    final user = userProvider.user;
+    final user = context.watch<UserProvider>().user;
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Profile")),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          CircleAvatar(radius: 50, child: Text(user.username[0], style: const TextStyle(fontSize: 40))),
-          const SizedBox(height: 16),
-          Text(user.username, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
-          Text("${user.grade} • ${user.school}"),
-          const SizedBox(height: 30),
-          ListTile(leading: const Icon(Icons.star), title: const Text("Level"), trailing: Text("${user.level}")),
-          ListTile(leading: const Icon(Icons.celebration), title: const Text("XP"), trailing: Text("${user.xpPoints}")),
-          ListTile(leading: const Icon(Icons.settings), title: const Text("Settings"), onTap: () => context.push('/settings')),
-          ListTile(leading: const Icon(Icons.logout), title: const Text("Logout"), onTap: () => context.go('/login')),
+      appBar: FXAppBar(
+        title: "Profile",
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings_rounded),
+            onPressed: () {
+              context.push('/settings');
+            },
+          ),
         ],
+      ),
+      body: SafeArea(
+        child: RefreshIndicator(
+          onRefresh: () async {
+            await Future.delayed(
+              const Duration(milliseconds: 700),
+            );
+          },
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            children: [
+              /// Header
+              ProfileHeader(
+                user: user,
+              ),
+
+              const SizedBox(height: AppSpacing.lg),
+
+              /// Stats
+              ProfileStats(
+                xp: user.xpPoints,
+                level: user.level,
+                streak: user.streak,
+              ),
+
+              const SizedBox(height: AppSpacing.xl),
+
+              /// Daily Goal
+              LearningGoalCard(
+                completedLessons: 3,
+                targetLessons: 5,
+                rewardXp: 200,
+                onContinue: () {
+                  context.go('/home');
+                },
+              ),
+
+              const SizedBox(height: AppSpacing.xl),
+
+              /// Achievements
+              const AchievementsCard(),
+
+              const SizedBox(height: AppSpacing.xl),
+
+              /// Recent Activity
+              const RecentActivity(),
+
+              const SizedBox(height: AppSpacing.xl),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppSpacing.lg,
+                ),
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    context.go('/login');
+                  },
+                  icon: const Icon(Icons.logout_rounded),
+                  label: const Text("Logout"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    minimumSize: const Size.fromHeight(56),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 40),
+            ],
+          ),
+        ),
       ),
     );
   }

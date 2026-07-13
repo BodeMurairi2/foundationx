@@ -1,32 +1,67 @@
 import 'package:flutter/material.dart';
+import 'topic.dart';
 
 class SubjectModel {
-  final String id, name, emoji, description;
-  final Color color, lightColor;
-  final int totalLessons, completedLessons;
-  final List<String> topics;
+  final String id;
+  final String name;
+  final String emoji;
+  final String description;
+
+  final IconData icon;
+
+  final Color color;
+  final Color lightColor;
+
+  final int totalLessons;
+  final int completedLessons;
+
+  final List<TopicModel> topics;
 
   const SubjectModel({
     required this.id,
     required this.name,
     required this.emoji,
+    required this.description,
+    required this.icon,
     required this.color,
     required this.lightColor,
     required this.totalLessons,
     required this.completedLessons,
-    required this.description,
     required this.topics,
   });
 
-  double get progress => totalLessons > 0 ? completedLessons / totalLessons : 0;
+  double get progress =>
+      totalLessons == 0 ? 0 : completedLessons / totalLessons;
 }
 
 class LessonModel {
-  final String id, title, subjectId, topicTag, explanation, detailedContent;
+  final String id;
+  final String title;
+  final String subjectId;
+  final String topicTag;
+
+  /// Short preview
+  final String explanation;
+
+  /// Full lesson content
+  final String detailedContent;
+
+  /// Revision notes
   final List<String> keyPoints;
-  final bool isCompleted;
+
   final int durationMinutes;
+
+  /// Beginner / Easy / Medium / Hard
   final String difficulty;
+
+  /// XP earned after completion
+  final int xpReward;
+
+  /// Locked until previous lesson is completed
+  final bool locked;
+
+  /// Placeholder until Firebase
+  final bool isCompleted;
 
   const LessonModel({
     required this.id,
@@ -36,9 +71,11 @@ class LessonModel {
     required this.explanation,
     required this.detailedContent,
     required this.keyPoints,
-    this.isCompleted = false,
     required this.durationMinutes,
     this.difficulty = 'Medium',
+    this.xpReward = 100,
+    this.locked = false,
+    this.isCompleted = false,
   });
 }
 
@@ -96,18 +133,23 @@ class UserModel {
     return DateTime.now().difference(lastDailyQuiz!).inHours >= 24;
   }
 
-  UserModel copyWith({DateTime? lastDailyQuiz, int? xpPoints}) {
-    return UserModel(
-      id: id,
-      name: name,
-      email: email,
-      grade: grade,
-      school: school,
-      username: username,
-      xpPoints: xpPoints ?? this.xpPoints,
-      streak: streak,
-      level: level,
-      lastDailyQuiz: lastDailyQuiz ?? this.lastDailyQuiz,
-    );
-  }
+ UserModel copyWith({
+  DateTime? lastDailyQuiz,
+  int? xpPoints,
+  int? level,
+  int? streak,
+}) {
+  return UserModel(
+    id: id,
+    name: name,
+    email: email,
+    grade: grade,
+    school: school,
+    username: username,
+    xpPoints: xpPoints ?? this.xpPoints,
+    streak: streak ?? this.streak,
+    level: level ?? this.level,
+    lastDailyQuiz: lastDailyQuiz ?? this.lastDailyQuiz,
+  );
 }
+  }

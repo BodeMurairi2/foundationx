@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'theme/app_theme.dart';
+
+import 'core/theme/app_theme.dart';
 import 'providers/app_providers.dart';
+import 'providers/theme_provider.dart';
 import 'router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   final prefs = await SharedPreferences.getInstance();
+
   runApp(
     MultiProvider(
       providers: AppProviders.providers(prefs),
@@ -21,11 +25,20 @@ class FoundationXApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'FoundationX',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      routerConfig: appRouter,
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp.router(
+          title: 'FoundationX',
+          debugShowCheckedModeBanner: false,
+
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+
+          themeMode: themeProvider.themeMode,
+
+          routerConfig: appRouter,
+        );
+      },
     );
   }
 }
