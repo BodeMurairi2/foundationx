@@ -6,7 +6,6 @@ import 'biology_data.dart';
 import 'physics_data.dart';
 
 class AppData {
-  /// All subjects
   static List<SubjectModel> get subjects => [
         MathematicsData.subject,
         EnglishData.subject,
@@ -14,7 +13,6 @@ class AppData {
         PhysicsData.subject,
       ];
 
-  /// All lessons
   static List<LessonModel> get lessons => [
         ...MathematicsData.lessons,
         ...EnglishData.lessons,
@@ -22,7 +20,6 @@ class AppData {
         ...PhysicsData.lessons,
       ];
 
-  /// Returns all topics for a subject
   static List<TopicModel> getTopicsForSubject(String subjectId) {
     switch (subjectId) {
       case 'math':
@@ -42,7 +39,6 @@ class AppData {
     }
   }
 
-  /// Returns all lessons for a subject
   static List<LessonModel> getLessonsForSubject(String subjectId) {
     switch (subjectId) {
       case 'math':
@@ -62,7 +58,6 @@ class AppData {
     }
   }
 
-  /// Returns quizzes for a subject
   static List<QuizModel> getQuizzesForSubject(String subjectId) {
     switch (subjectId) {
       case 'math':
@@ -82,7 +77,6 @@ class AppData {
     }
   }
 
-  /// Daily quiz
   static QuizModel get dailyQuiz => const QuizModel(
         id: 'daily_quiz',
         title: 'Daily Challenge',
