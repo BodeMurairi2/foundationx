@@ -29,10 +29,8 @@ class UserProvider extends ChangeNotifier {
 
   UserModel get user => _user;
 
-  // XP needed to reach the next level
   int get xpForNextLevel => _user.level * 500;
 
-  // Progress between levels (0.0 - 1.0)
   double get levelProgress {
     final previousLevelXP = (_user.level - 1) * 500;
     final currentLevelXP = _user.xpPoints - previousLevelXP;
