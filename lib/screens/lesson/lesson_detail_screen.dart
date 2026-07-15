@@ -14,7 +14,6 @@ class LessonDetailScreen extends StatelessWidget {
     super.key,
     required this.lesson,
   });
-
   Color _difficultyColor(String difficulty) {
     switch (difficulty.toLowerCase()) {
       case 'beginner':
