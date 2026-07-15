@@ -27,7 +27,6 @@ class SubjectList extends StatelessWidget {
         ),
 
         const SizedBox(height: AppSpacing.md),
-
         SizedBox(
           height: 155,
           child: ListView.separated(

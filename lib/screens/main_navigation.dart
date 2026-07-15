@@ -38,13 +38,10 @@ class _MainNavigationState extends State<MainNavigation> {
           type: BottomNavigationBarType.fixed,
           elevation: 12,
           backgroundColor: Colors.white,
-
           selectedItemColor: const Color(0xFF315CFD),
           unselectedItemColor: const Color(0xFF8E98A8),
-
           selectedFontSize: 12,
           unselectedFontSize: 12,
-
           selectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.w600,
           ),

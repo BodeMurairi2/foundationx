@@ -20,7 +20,6 @@ class ContinueLearningSection extends StatelessWidget {
     if (lessons.isEmpty) {
       return const SizedBox.shrink();
     }
-
     final lessonProvider = context.watch<LessonProvider>();
     final continueLessons = lessons.where((lesson) {
   return !lesson.locked &&

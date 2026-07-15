@@ -12,7 +12,6 @@ class QuizResultScreen extends StatelessWidget {
     required this.totalQuestions,
     required this.xpEarned,
   });
-
   double get percentage => score / totalQuestions;
 
   String get message {

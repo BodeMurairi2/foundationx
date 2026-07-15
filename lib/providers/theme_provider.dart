@@ -5,7 +5,6 @@ class ThemeProvider extends ChangeNotifier {
   static const String _themeKey = "theme_mode";
 
   final SharedPreferences prefs;
-
   late ThemeMode _themeMode;
 
   ThemeProvider(this.prefs) {
