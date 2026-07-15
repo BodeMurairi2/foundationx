@@ -55,7 +55,6 @@ class AchievementProvider extends ChangeNotifier {
   ];
 
   List<Achievement> get achievements => _achievements;
-
   bool isUnlocked(String id) =>
       _achievements.firstWhere((a) => a.id == id).unlocked;
 
