@@ -10,7 +10,6 @@ class AchievementsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final achievementProvider =
         context.watch<AchievementProvider>();
-
     final achievements = achievementProvider.achievements;
 
     return Scaffold(
