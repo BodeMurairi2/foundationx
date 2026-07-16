@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'core/theme/app_theme.dart';
-import 'providers/app_providers.dart';
-import 'providers/theme_provider.dart';
-import 'router.dart';
+import 'package:foundationx/core/theme/app_theme.dart';
+import 'package:foundationx/core/providers/app_providers.dart';
+import 'package:foundationx/core/providers/theme_provider.dart';
+import 'package:foundationx/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

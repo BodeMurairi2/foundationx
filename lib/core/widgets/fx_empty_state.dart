@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'fx_button.dart';
+import 'package:foundationx/core/widgets/fx_button.dart';
 
 class FXEmptyState extends StatelessWidget {
   final IconData icon;

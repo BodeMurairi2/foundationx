@@ -1,9 +1,8 @@
-import '../models/models.dart';
-import '../models/topic.dart';
-import 'mathematics_data.dart';
-import 'english_data.dart';
-import 'biology_data.dart';
-import 'physics_data.dart';
+import 'package:foundationx/core/models/models.dart';
+import 'package:foundationx/data/mathematics_data.dart';
+import 'package:foundationx/data/english_data.dart';
+import 'package:foundationx/data/biology_data.dart';
+import 'package:foundationx/data/physics_data.dart';
 
 class AppData {
   static List<SubjectModel> get subjects => [

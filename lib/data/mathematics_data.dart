@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/models.dart';
-import '../models/topic.dart';
+import 'package:foundationx/core/models/models.dart';
 
 class MathematicsData {
   static final SubjectModel subject = SubjectModel(

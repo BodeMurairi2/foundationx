@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/app_data.dart';
-import '../../models/models.dart';
-import '../../providers/lesson_provider.dart';
+import 'package:foundationx/data/app_data.dart';
+import 'package:foundationx/core/models/models.dart';
+import 'package:foundationx/core/providers/lesson_provider.dart';
 
-import '../constants/app_padding.dart';
-import '../constants/app_radius.dart';
-import '../constants/app_spacing.dart';
-import 'fx_button.dart';
-import 'fx_card.dart';
+import 'package:foundationx/core/constants/app_padding.dart';
+import 'package:foundationx/core/constants/app_radius.dart';
+import 'package:foundationx/core/constants/app_spacing.dart';
+import 'package:foundationx/core/widgets/fx_button.dart';
+import 'package:foundationx/core/widgets/fx_card.dart';
 
 class FXLessonCard extends StatelessWidget {
   final LessonModel lesson;

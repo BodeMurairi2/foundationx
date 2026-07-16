@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/models.dart';
+import 'package:foundationx/core/models/models.dart';
 
 class FXSubjectChip extends StatelessWidget {
   final SubjectModel subject;

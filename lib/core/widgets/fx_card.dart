@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_colors.dart';
+import 'package:foundationx/core/theme/app_colors.dart';
 
 class FXCard extends StatelessWidget {
   final Widget child;

@@ -1,17 +1,17 @@
 import 'package:go_router/go_router.dart';
 
-import 'screens/splash_screen.dart';
-import 'screens/onboarding_screen.dart';
-import 'screens/auth/login_screen.dart';
-import 'screens/auth/register_screen.dart';
-import 'screens/main_navigation.dart';
-import 'screens/chat/ai_chat_screen.dart';
-import 'screens/subjects/subject_detail_screen.dart';
-import 'screens/settings/settings_screen.dart';
-import 'screens/lesson/lesson_detail_screen.dart';
-import 'screens/quiz/quiz_screen.dart';
-import 'models/models.dart';
-import 'screens/profile/achievements_screen.dart';
+import 'package:foundationx/features/onboarding/screens/splash_screen.dart';
+import 'package:foundationx/features/onboarding/screens/onboarding_screen.dart';
+import 'package:foundationx/features/auth/screens/login_screen.dart';
+import 'package:foundationx/features/auth/screens/register_screen.dart';
+import 'package:foundationx/features/home/screens/main_navigation.dart';
+import 'package:foundationx/features/chat/screens/ai_chat_screen.dart';
+import 'package:foundationx/features/subjects/screens/subject_detail_screen.dart';
+import 'package:foundationx/features/settings/screens/settings_screen.dart';
+import 'package:foundationx/features/lesson/screens/lesson_detail_screen.dart';
+import 'package:foundationx/features/quiz/screens/quiz_screen.dart';
+import 'package:foundationx/core/models/models.dart';
+import 'package:foundationx/features/profile/screens/achievements_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/splash',

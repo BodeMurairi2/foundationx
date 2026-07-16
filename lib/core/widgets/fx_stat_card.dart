@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'fx_card.dart';
+import 'package:foundationx/core/widgets/fx_card.dart';
 
 class FXStatCard extends StatelessWidget {
   final String title;

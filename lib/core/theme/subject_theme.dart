@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
+import 'package:foundationx/core/theme/app_colors.dart';
 
 /// Represents the visual style for a subject.
 class SubjectThemeData {
